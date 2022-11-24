@@ -75,8 +75,8 @@ class _InputPageState extends State<InputPage> {
 }
 
 class ReusableCard extends StatelessWidget {
-  Border cardborder;
-  ReusableCard({super.key, required this.cardborder});
+  final Border cardborder;
+  const ReusableCard({super.key, required this.cardborder});
 
   @override
   Widget build(BuildContext context) {
