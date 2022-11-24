@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const bottomContainerHight = 80.0;
+
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
 
@@ -14,7 +16,7 @@ class _InputPageState extends State<InputPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'BMI CALCULATOR',
+          'КАЛЬКУЛЯТОР ИМТ',
         ),
       ),
       body: Column(
@@ -23,50 +25,57 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child:
-                      ReusableCard(cardborder: Border.all(color: Colors.grey)),
+                  child: ReusableCard(
+                    cardborder: Border.all(
+                      color: Colors.grey,
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child:
-                      ReusableCard(cardborder: Border.all(color: Colors.grey)),
+                  child: ReusableCard(
+                    cardborder: Border.all(
+                      color: Colors.grey,
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
           Expanded(
-            child: ReusableCard(cardborder: Border.all(color: Colors.grey)),
+            child: ReusableCard(
+              cardborder: Border.all(
+                color: Colors.grey,
+              ),
+            ),
           ),
           Expanded(
             child: Row(
               children: [
                 Expanded(
                   child: ReusableCard(
-                      cardborder: Border.all(color: Colors.red, width: 3.0)),
+                    cardborder: Border.all(
+                      color: Colors.blueGrey,
+                      width: 3.0,
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child:
-                      ReusableCard(cardborder: Border.all(color: Colors.grey)),
+                  child: ReusableCard(
+                    cardborder: Border.all(
+                      color: Colors.grey,
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
-        ],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {},
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blue,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.graphic_eq),
-            label: "First",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.man),
-            label: "Second",
+          Container(
+            color: Colors.blueAccent,
+            margin: const EdgeInsets.only(
+              top: 10.0,
+            ),
+            width: double.infinity,
+            height: bottomContainerHight,
           ),
         ],
       ),
@@ -82,8 +91,10 @@ class ReusableCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          border: cardborder, borderRadius: BorderRadius.circular(15.0)),
-      margin: const EdgeInsets.all(15.0),
+        border: cardborder,
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      margin: const EdgeInsets.all(10.0),
     );
   }
 }
