@@ -4,6 +4,7 @@ class InputPage extends StatefulWidget {
   const InputPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _InputPageState createState() => _InputPageState();
 }
 
@@ -20,27 +21,31 @@ class _InputPageState extends State<InputPage> {
         children: [
           Expanded(
             child: Row(
-              children: const [
+              children: [
                 Expanded(
-                  child: ReusableCard(),
+                  child:
+                      ReusableCard(cardborder: Border.all(color: Colors.grey)),
                 ),
                 Expanded(
-                  child: ReusableCard(),
+                  child:
+                      ReusableCard(cardborder: Border.all(color: Colors.grey)),
                 ),
               ],
             ),
           ),
-          const Expanded(
-            child: ReusableCard(),
+          Expanded(
+            child: ReusableCard(cardborder: Border.all(color: Colors.grey)),
           ),
           Expanded(
             child: Row(
-              children: const [
+              children: [
                 Expanded(
-                  child: ReusableCard(),
+                  child: ReusableCard(
+                      cardborder: Border.all(color: Colors.red, width: 3.0)),
                 ),
                 Expanded(
-                  child: ReusableCard(),
+                  child:
+                      ReusableCard(cardborder: Border.all(color: Colors.grey)),
                 ),
               ],
             ),
@@ -70,16 +75,14 @@ class _InputPageState extends State<InputPage> {
 }
 
 class ReusableCard extends StatelessWidget {
-  const ReusableCard({
-    Key? key,
-  }) : super(key: key);
+  Border cardborder;
+  ReusableCard({super.key, required this.cardborder});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(15.0)),
+          border: cardborder, borderRadius: BorderRadius.circular(15.0)),
       margin: const EdgeInsets.all(15.0),
     );
   }
