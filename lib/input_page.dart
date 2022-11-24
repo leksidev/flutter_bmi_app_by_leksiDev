@@ -20,52 +20,27 @@ class _InputPageState extends State<InputPage> {
         children: [
           Expanded(
             child: Row(
-              children: [
+              children: const [
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15.0)),
-                    margin: const EdgeInsets.all(15.0),
-                  ),
+                  child: ReusableCard(),
                 ),
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15.0)),
-                    margin: const EdgeInsets.all(15.0),
-                  ),
+                  child: ReusableCard(),
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(15.0)),
-              margin: const EdgeInsets.all(15.0),
-            ),
+          const Expanded(
+            child: ReusableCard(),
           ),
           Expanded(
             child: Row(
-              children: [
+              children: const [
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15.0)),
-                    margin: const EdgeInsets.all(15.0),
-                  ),
+                  child: ReusableCard(),
                 ),
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15.0)),
-                    margin: const EdgeInsets.all(15.0),
-                  ),
+                  child: ReusableCard(),
                 ),
               ],
             ),
@@ -90,11 +65,22 @@ class _InputPageState extends State<InputPage> {
           ),
         ],
       ),
+    );
+  }
+}
 
-      // floatingActionButton: FloatingActionButton(
-      //   child: const Icon(Icons.add),
-      //   onPressed: () {},
-      // ),
+class ReusableCard extends StatelessWidget {
+  const ReusableCard({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(15.0)),
+      margin: const EdgeInsets.all(15.0),
     );
   }
 }
