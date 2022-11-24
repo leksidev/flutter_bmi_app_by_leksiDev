@@ -5,7 +5,7 @@ import 'card_content.dart';
 const bottomContainerHight = 80.0;
 const bottomContainerColor = Color.fromARGB(255, 12, 75, 184);
 const primaryColor = Color.fromARGB(255, 186, 171, 171);
-const accentColor = Color.fromARGB(255, 44, 71, 117);
+const inactiveColor = Color.fromARGB(68, 186, 171, 171);
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -16,6 +16,9 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  bool _maleIsOn = false;
+  bool _femaleIsOn = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,26 +33,42 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(
-                    cardBorder: Border.all(
-                      color: primaryColor,
-                    ),
-                    cardChild: const CardContent(
-                      label: 'мужчина',
-                      icon: Icons.male,
-                      color: Colors.orange,
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _maleIsOn = !_maleIsOn;
+                        _femaleIsOn = !_maleIsOn;
+                      });
+                    },
+                    child: ReusableCard(
+                      cardBorder: Border.all(
+                        color: _maleIsOn ? primaryColor : inactiveColor,
+                      ),
+                      cardChild: const CardContent(
+                        label: 'мужчина',
+                        icon: Icons.male,
+                        color: Colors.orange,
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
-                  child: ReusableCard(
-                    cardBorder: Border.all(
-                      color: primaryColor,
-                    ),
-                    cardChild: const CardContent(
-                      label: 'женщина',
-                      icon: Icons.female,
-                      color: Color.fromARGB(255, 243, 127, 166),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _femaleIsOn = !_femaleIsOn;
+                        _maleIsOn = !_femaleIsOn;
+                      });
+                    },
+                    child: ReusableCard(
+                      cardBorder: Border.all(
+                        color: _femaleIsOn ? primaryColor : inactiveColor,
+                      ),
+                      cardChild: const CardContent(
+                        label: 'женщина',
+                        icon: Icons.female,
+                        color: Color.fromARGB(255, 243, 127, 166),
+                      ),
                     ),
                   ),
                 ),
@@ -70,8 +89,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     cardBorder: Border.all(
-                      color: accentColor,
-                      width: 3.0,
+                      color: primaryColor,
                     ),
                     cardChild: const Text("TEST"),
                   ),
