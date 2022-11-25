@@ -41,8 +41,8 @@ class _InputPageState extends State<InputPage> {
                     }),
                     cardBorder: Border.all(
                       color: selectedGender == Gender.male
-                          ? primaryColor
-                          : inactiveColor,
+                          ? kPrimaryColor
+                          : kInactiveColor,
                     ),
                     cardChild: const CardContent(
                       label: 'мужчина',
@@ -60,8 +60,8 @@ class _InputPageState extends State<InputPage> {
                     },
                     cardBorder: Border.all(
                       color: selectedGender == Gender.female
-                          ? primaryColor
-                          : inactiveColor,
+                          ? kPrimaryColor
+                          : kInactiveColor,
                     ),
                     cardChild: const CardContent(
                       label: 'женщина',
@@ -76,7 +76,7 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: ReusableCard(
               cardBorder: Border.all(
-                color: primaryColor,
+                color: kPrimaryColor,
               ),
               cardChild: Column(
                 children: const [
@@ -91,7 +91,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     cardBorder: Border.all(
-                      color: primaryColor,
+                      color: kPrimaryColor,
                     ),
                     cardChild: const Text("TEST"),
                   ),
@@ -99,7 +99,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     cardBorder: Border.all(
-                      color: primaryColor,
+                      color: kPrimaryColor,
                     ),
                     cardChild: const Text("TEST"),
                   ),
@@ -108,12 +108,12 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Container(
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             margin: const EdgeInsets.only(
               top: 10.0,
             ),
             width: double.infinity,
-            height: bottomContainerHight,
+            height: kBottomContainerHight,
           ),
         ],
       ),
