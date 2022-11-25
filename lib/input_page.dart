@@ -18,6 +18,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
+  int _height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class _InputPageState extends State<InputPage> {
         ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Row(
@@ -47,7 +49,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: const CardContent(
                       label: 'мужчина',
                       icon: Icons.male,
-                      color: Colors.orange,
+                      color: kDarkBlueAccentColor,
                     ),
                   ),
                 ),
@@ -79,8 +81,48 @@ class _InputPageState extends State<InputPage> {
                 color: kPrimaryColor,
               ),
               cardChild: Column(
-                children: const [
-                  Text('Рост'),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text(
+                    'рост',
+                    style: kLabelTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
+                    children: [
+                      Text(
+                        _height.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      const Text(
+                        'см',
+                        style: kLabelTextStyle,
+                      ),
+                    ],
+                  ),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                        activeTrackColor: kDarkBlueAccentColor,
+                        inactiveTrackColor: kInactiveColor,
+                        overlayColor: const Color.fromARGB(79, 226, 32, 123),
+                        thumbShape: const RoundSliderThumbShape(
+                            enabledThumbRadius: 8.0),
+                        overlayShape:
+                            const RoundSliderOverlayShape(overlayRadius: 25.0)),
+                    child: Slider(
+                      value: _height.toDouble(),
+                      min: 120,
+                      max: 220,
+                      divisions: 100,
+                      onChanged: ((double value) {
+                        setState(() {
+                          _height = value.toInt();
+                        });
+                      }),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -108,7 +150,7 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Container(
-            color: kBottomContainerColor,
+            color: kDarkBlueAccentColor,
             margin: const EdgeInsets.only(
               top: 10.0,
             ),
