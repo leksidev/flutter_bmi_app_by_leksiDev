@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'reusable_card.dart';
 import 'card_content.dart';
-
-const bottomContainerHight = 80.0;
-const bottomContainerColor = Color.fromARGB(255, 12, 75, 184);
-const primaryColor = Color.fromARGB(255, 186, 171, 171);
-const inactiveColor = Color.fromARGB(68, 186, 171, 171);
+import 'constants.dart';
 
 enum Gender {
   male,
@@ -82,7 +78,11 @@ class _InputPageState extends State<InputPage> {
               cardBorder: Border.all(
                 color: primaryColor,
               ),
-              cardChild: const Text("TEST"),
+              cardChild: Column(
+                children: const [
+                  Text('Рост'),
+                ],
+              ),
             ),
           ),
           Expanded(
