@@ -17,7 +17,7 @@ class CardContent extends StatelessWidget {
         Icon(
           color: color,
           icon,
-          size: 80.0,
+          size: 90.0,
         ),
         const SizedBox(
           height: 15.0,
