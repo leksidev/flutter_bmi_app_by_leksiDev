@@ -7,6 +7,11 @@ const bottomContainerColor = Color.fromARGB(255, 12, 75, 184);
 const primaryColor = Color.fromARGB(255, 186, 171, 171);
 const inactiveColor = Color.fromARGB(68, 186, 171, 171);
 
+enum Gender {
+  male,
+  female,
+}
+
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
 
@@ -16,8 +21,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  bool _maleIsOn = false;
-  bool _femaleIsOn = false;
+  Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -33,42 +37,40 @@ class _InputPageState extends State<InputPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableCard(
+                    onPress: (() {
                       setState(() {
-                        _maleIsOn = !_maleIsOn;
-                        _femaleIsOn = !_maleIsOn;
+                        selectedGender = Gender.male;
                       });
-                    },
-                    child: ReusableCard(
-                      cardBorder: Border.all(
-                        color: _maleIsOn ? primaryColor : inactiveColor,
-                      ),
-                      cardChild: const CardContent(
-                        label: 'мужчина',
-                        icon: Icons.male,
-                        color: Colors.orange,
-                      ),
+                    }),
+                    cardBorder: Border.all(
+                      color: selectedGender == Gender.male
+                          ? primaryColor
+                          : inactiveColor,
+                    ),
+                    cardChild: const CardContent(
+                      label: 'мужчина',
+                      icon: Icons.male,
+                      color: Colors.orange,
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReusableCard(
+                    onPress: () {
                       setState(() {
-                        _femaleIsOn = !_femaleIsOn;
-                        _maleIsOn = !_femaleIsOn;
+                        selectedGender = Gender.female;
                       });
                     },
-                    child: ReusableCard(
-                      cardBorder: Border.all(
-                        color: _femaleIsOn ? primaryColor : inactiveColor,
-                      ),
-                      cardChild: const CardContent(
-                        label: 'женщина',
-                        icon: Icons.female,
-                        color: Color.fromARGB(255, 243, 127, 166),
-                      ),
+                    cardBorder: Border.all(
+                      color: selectedGender == Gender.female
+                          ? primaryColor
+                          : inactiveColor,
+                    ),
+                    cardChild: const CardContent(
+                      label: 'женщина',
+                      icon: Icons.female,
+                      color: Color.fromARGB(255, 243, 127, 166),
                     ),
                   ),
                 ),
