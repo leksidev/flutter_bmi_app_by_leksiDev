@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bmi_app/result_page.dart';
 import 'reusable_card.dart';
 import 'card_content.dart';
 import 'constants.dart';
+import 'result_page.dart';
 
 enum Gender {
   male,
@@ -20,13 +22,16 @@ class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int _height = 180;
   int _weight = 30;
+  int _age = 18;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: kDarkBlueAccentColor,
+        centerTitle: true,
         title: const Text(
-          'КАЛЬКУЛЯТОР ИМТ',
+          'Индекс Массы Тела',
         ),
       ),
       body: Column(
@@ -170,22 +175,75 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   child: ReusableCard(
-                    cardColor: kPrimaryColor,
-                    cardChild: Text("TEST"),
+                    cardColor: kActiveColor,
+                    cardChild: Column(
+                      children: [
+                        const Text(
+                          'ВОЗРАСТ',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          _age.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        const SizedBox(
+                          height: 5.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: Icons.plus_one,
+                              onPressed: () {
+                                setState(() {
+                                  _age++;
+                                });
+                              },
+                            ),
+                            const SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(
+                              icon: Icons.exposure_minus_1,
+                              onPressed: () {
+                                setState(() {
+                                  _age--;
+                                });
+                              },
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          Container(
-            color: kDarkBlueAccentColor,
-            margin: const EdgeInsets.only(
-              top: 10.0,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => const ResultPage())));
+            },
+            child: Container(
+              color: kDarkBlueAccentColor,
+              margin: const EdgeInsets.only(
+                top: 10.0,
+              ),
+              padding: const EdgeInsets.only(bottom: 15.0),
+              width: double.infinity,
+              height: kBottomContainerHight,
+              child: const Center(
+                child: Text(
+                  'РАССЧИТАТЬ',
+                  style: kButtonTextStyle,
+                ),
+              ),
             ),
-            width: double.infinity,
-            height: kBottomContainerHight,
           ),
         ],
       ),

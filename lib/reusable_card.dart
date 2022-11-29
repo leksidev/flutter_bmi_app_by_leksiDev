@@ -22,7 +22,7 @@ class ReusableCard extends StatelessWidget {
           color: cardColor,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
+              color: const Color.fromARGB(255, 130, 130, 130).withOpacity(0.3),
               spreadRadius: 1,
               blurRadius: 5,
               offset: const Offset(2, 2), // changes position of shadow
