@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 const kBottomContainerHight = 90.0;
@@ -23,4 +25,22 @@ const kButtonTextStyle = TextStyle(
   color: Colors.white,
   fontSize: 25.0,
   textBaseline: TextBaseline.alphabetic,
+);
+
+const kTitleTextStyle = TextStyle(
+  fontSize: 30.0,
+  fontWeight: FontWeight.bold,
+  color: kLabelColor,
+);
+
+const kResultTextStyle = TextStyle(
+  fontSize: 22.0,
+  color: Color.fromARGB(255, 94, 213, 98),
+  fontWeight: FontWeight.bold,
+);
+
+const kBmiTextStyle = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.w900,
+  color: kLabelColor,
 );

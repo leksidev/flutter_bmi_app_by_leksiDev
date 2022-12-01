@@ -222,30 +222,44 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
+          BottomButton(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: ((context) => const ResultPage())));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ResultPage()));
             },
-            child: Container(
-              color: kDarkBlueAccentColor,
-              margin: const EdgeInsets.only(
-                top: 10.0,
-              ),
-              padding: const EdgeInsets.only(bottom: 15.0),
-              width: double.infinity,
-              height: kBottomContainerHight,
-              child: const Center(
-                child: Text(
-                  'РАССЧИТАТЬ',
-                  style: kButtonTextStyle,
-                ),
-              ),
-            ),
+            buttonTitle: ' РАССЧИТАТЬ',
           ),
         ],
+      ),
+    );
+  }
+}
+
+class BottomButton extends StatelessWidget {
+  final VoidCallback onTap;
+  final String buttonTitle;
+
+  const BottomButton(
+      {required this.buttonTitle, required this.onTap, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        color: kDarkBlueAccentColor,
+        margin: const EdgeInsets.only(
+          top: 10.0,
+        ),
+        padding: const EdgeInsets.only(bottom: 15.0),
+        width: double.infinity,
+        height: kBottomContainerHight,
+        child: const Center(
+          child: Text(
+            'РАССЧИТАТЬ',
+            style: kButtonTextStyle,
+          ),
+        ),
       ),
     );
   }
