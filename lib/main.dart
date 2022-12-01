@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'color_schemes.g.dart';
-import 'input_page.dart';
+import 'package:flutter_bmi_app/screens/input_page.dart';
 
 void main() => runApp(const BMICalculator());
 

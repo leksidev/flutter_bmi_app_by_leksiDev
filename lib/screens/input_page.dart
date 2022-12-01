@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bmi_app/result_page.dart';
-import 'reusable_card.dart';
-import 'card_content.dart';
-import 'constants.dart';
-import 'buttons.dart';
+import 'result_page.dart';
+import '/components/buttons.dart';
+import '/components/reusable_card.dart';
+import '/components/card_content.dart';
+import '../constants.dart';
 
 enum Gender {
   male,
