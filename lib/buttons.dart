@@ -21,9 +21,9 @@ class BottomButton extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 15.0),
         width: double.infinity,
         height: kBottomContainerHight,
-        child: const Center(
+        child: Center(
           child: Text(
-            'РАССЧИТАТЬ',
+            buttonTitle,
             style: kButtonTextStyle,
           ),
         ),

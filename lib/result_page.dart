@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bmi_app/constants.dart';
+import 'package:flutter_bmi_app/input_page.dart';
 import 'package:flutter_bmi_app/reusable_card.dart';
+import 'buttons.dart';
 
 class ResultPage extends StatelessWidget {
   const ResultPage({super.key});
@@ -33,19 +35,24 @@ class ResultPage extends StatelessWidget {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     'Normal',
                     style: kResultTextStyle,
                   ),
-                  Text(
+                  const Text(
                     '18.3',
                     style: kBmiTextStyle,
                   ),
-                  Text(
+                  const Text(
                     'Всё хорошо, у нас нормальный индекс массы тела',
                     style: kLabelTextStyle,
-                  )
+                  ),
+                  BottomButton(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      buttonTitle: 'ПЕРЕСЧИТАТЬ'),
                 ],
               ),
             ),
