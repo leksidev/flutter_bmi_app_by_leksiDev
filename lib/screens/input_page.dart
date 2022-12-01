@@ -152,10 +152,10 @@ class _InputPageState extends State<InputPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             RoundIconButton(
-                              icon: Icons.plus_one,
+                              icon: Icons.exposure_minus_1,
                               onPressed: () {
                                 setState(() {
-                                  _weight++;
+                                  _weight--;
                                 });
                               },
                             ),
@@ -163,10 +163,10 @@ class _InputPageState extends State<InputPage> {
                               width: 10.0,
                             ),
                             RoundIconButton(
-                              icon: Icons.exposure_minus_1,
+                              icon: Icons.plus_one,
                               onPressed: () {
                                 setState(() {
-                                  _weight--;
+                                  _weight++;
                                 });
                               },
                             ),
@@ -196,10 +196,10 @@ class _InputPageState extends State<InputPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             RoundIconButton(
-                              icon: Icons.plus_one,
+                              icon: Icons.exposure_minus_1,
                               onPressed: () {
                                 setState(() {
-                                  _age++;
+                                  _age--;
                                 });
                               },
                             ),
@@ -207,10 +207,10 @@ class _InputPageState extends State<InputPage> {
                               width: 10.0,
                             ),
                             RoundIconButton(
-                              icon: Icons.exposure_minus_1,
+                              icon: Icons.plus_one,
                               onPressed: () {
                                 setState(() {
-                                  _age--;
+                                  _age++;
                                 });
                               },
                             ),
