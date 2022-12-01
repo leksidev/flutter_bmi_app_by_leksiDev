@@ -4,7 +4,15 @@ import '/components/reusable_card.dart';
 import '/components/buttons.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  const ResultPage(
+      {super.key,
+      required this.bmiResult,
+      required this.resultText,
+      required this.interpritation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpritation;
 
   @override
   Widget build(BuildContext context) {
@@ -35,27 +43,27 @@ class ResultPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Normal',
+                  Text(
+                    resultText.toUpperCase(),
                     style: kResultTextStyle,
                   ),
-                  const Text(
-                    '18.3',
+                  Text(
+                    bmiResult,
                     style: kBmiTextStyle,
                   ),
-                  const Text(
-                    'Всё хорошо, у нас нормальный индекс массы тела',
+                  Text(
+                    interpritation,
                     style: kLabelTextStyle,
                   ),
-                  BottomButton(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      buttonTitle: 'ПЕРЕСЧИТАТЬ'),
                 ],
               ),
             ),
           ),
+          BottomButton(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              buttonTitle: 'ПЕРЕСЧИТАТЬ'),
         ],
       ),
     );

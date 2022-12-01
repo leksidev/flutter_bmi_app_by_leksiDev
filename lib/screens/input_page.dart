@@ -4,6 +4,7 @@ import '/components/buttons.dart';
 import '/components/reusable_card.dart';
 import '/components/card_content.dart';
 import '../constants.dart';
+import 'package:flutter_bmi_app/calculator_brain.dart';
 
 enum Gender {
   male,
@@ -20,9 +21,9 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
-  int _height = 180;
-  int _weight = 30;
-  int _age = 18;
+  int _height = 165;
+  int _weight = 65;
+  int _age = 21;
 
   @override
   Widget build(BuildContext context) {
@@ -224,8 +225,18 @@ class _InputPageState extends State<InputPage> {
           ),
           BottomButton(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ResultPage()));
+              CalculatorBrain calc =
+                  CalculatorBrain(height: _height, weight: _weight);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(
+                    bmiResult: calc.calculateBMI(),
+                    resultText: calc.getResult(),
+                    interpritation: calc.getInterpritation(),
+                  ),
+                ),
+              );
             },
             buttonTitle: ' РАССЧИТАТЬ',
           ),
