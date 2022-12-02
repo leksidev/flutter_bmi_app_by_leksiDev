@@ -1,5 +1,9 @@
 # Calculator app for calculating body mass index
 
+![Input Page](/flutter_bmi_app_by_leksiDev/photo_2022-12-01_20-32-01 (2).jpg?raw=true "Main screen")
+![Result Page](/flutter_bmi_app_by_leksiDev/photo_2022-12-01_20-32-01.jpg?raw=true "Result page")
+
+
 The body weight calculator was developed as part of Angela Yu's course on the development of mobile applications on Flutter.
 
 ## What I have done:
