@@ -1,16 +1,13 @@
-# flutter_bmi_app
+# Calculator app for calculating body mass index
 
-A new Flutter project.
+The body weight calculator was developed as part of Angela Yu's course on the development of mobile applications on Flutter.
 
-## Getting Started
+## What I have done:
+- Designed the screen interface based on an example from a course teacher.
+- Implemented the interface.
+- Created my own widgets based on native ones.
+- I made the first version of business logic: the calculator calculates the body mass index according to a generalized formula, without taking into account gender and age.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## What I will do:
+- Upgrade logic.
+- Optimize the interface.
